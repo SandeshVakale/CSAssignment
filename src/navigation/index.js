@@ -4,6 +4,8 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import WalkThrough from '../screens/walkthrough';
+import DrawerRoute from './drawer';
+import { colors } from '../themes';
 const AppStack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -13,7 +15,7 @@ export default function Navigation() {
     };
     return (
         <SafeAreaProvider>
-            <NavigationContainer>
+            <NavigationContainer theme={{colors: {background: colors.background}}}>
                 <AppStack.Navigator screenOptions={{gestureEnabled: false}}>
                     <AppStack.Screen
                         options={{
@@ -23,8 +25,11 @@ export default function Navigation() {
                         component={WalkThrough}
                     />
                     <AppStack.Screen
+                        options={{
+                            headerShown: false,
+                        }}
                         name="Detail"
-                        component={DetailScreen}
+                        component={DrawerRoute}
                     />
                 </AppStack.Navigator>
             </NavigationContainer>
