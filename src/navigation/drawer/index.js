@@ -1,18 +1,10 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import Button from '../../components/button';
 import { colors } from '../../themes';
 import HomeScreen from '../../screens/home';
+import RequestMoney from '../../screens/request';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-
-function NotificationsScreen({ navigation }) {
-    return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Button onPress={() => navigation.goBack()} title="Go back home" />
-        </View>
-    );
-}
 
 const Drawer = createDrawerNavigator();
 
@@ -32,7 +24,9 @@ export default function DrawerRoute() {
                     </TouchableOpacity>
                 ),
             }} />
-            <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+            <Drawer.Screen name="SendMoney" component={RequestMoney} options={{
+                headerTitle: () => <Text style={{ textAlign: 'left', fontSize: 22, color: colors.white }}>New Request</Text>,
+            }} />
         </Drawer.Navigator>
     );
 }

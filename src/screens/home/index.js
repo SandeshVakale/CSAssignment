@@ -5,8 +5,11 @@ import Button from '../../components/button';
 import BottomSheet from 'react-native-simple-bottom-sheet';
 import transactions from '../../fake/transactions.json';
 import Icon from 'react-native-vector-icons/AntDesign';
-
+import { useNavigation } from '@react-navigation/native';
 const HomeScreen = () => {
+
+    const navigation = useNavigation();
+
     return <View style={{flex: 1, flexDirection: 'column'}}>
         <View style={{width: '70%', marginHorizontal: 20, paddingVertical: 40}}>
             <Text style={{ color: colors.white, padding: 5, paddingBottom: 10  }}>Your current balance is</Text>
@@ -14,7 +17,7 @@ const HomeScreen = () => {
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
             <Button textColor={colors.tertiary} borderColor={colors.tertiary} background={colors.background} text={'Request money'} />
-            <Button textColor={colors.tertiary} borderColor={colors.tertiary} background={colors.background} text={'Send money'} />
+            <Button textColor={colors.tertiary} borderColor={colors.tertiary} background={colors.background} text={'Send money'} onPress={() => navigation.navigate('SendMoney')}/>
         </View>
         <BottomSheet isOpen wrapperStyle={{ backgroundColor: colors.secondary, paddingHorizontal: 0 }} lineStyle={{ backgroundColor: colors.tertiary }}>
             {(onScrollEndDrag) => (
