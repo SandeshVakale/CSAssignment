@@ -4,6 +4,7 @@ import { colors } from '../../themes';
 import contacts from '../../fake/contacts.json';
 import { ScrollView } from 'react-native-gesture-handler';
 import BottomSheet from 'react-native-simple-bottom-sheet';
+import Button from '../../components/button';
 
 const SendMoney = ({ navigation }) => {
     const [text, setText] = React.useState('');
@@ -51,6 +52,7 @@ const SendMoney = ({ navigation }) => {
                 <Image source={{ uri: contact.image }} style={{ height: 50, width: 50, borderRadius: 25, resizeMode: 'contain', padding: 5 }}/>
                 <Text style={{ color: colors.white, padding: 5, fontSize: 28, fontWeight: 'bold' }}>{contact.name}</Text>
                 <Text style={{ color: colors.white, padding: 5, fontSize: 22, fontWeight: 'bold' }}>{contact.phone}</Text>
+                <Button onPress={() => navigation.goBack()} text={'Continue'} textColor={colors.white} background={colors.lightBlood} />
             </View>
         </BottomSheet>}
     </View>;
