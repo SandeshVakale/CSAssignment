@@ -4,6 +4,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { colors } from '../../themes';
 import HomeScreen from '../../screens/home';
 import RequestMoney from '../../screens/request';
+import SendMoney from '../../screens/send';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Drawer = createDrawerNavigator();
@@ -24,9 +25,10 @@ export default function DrawerRoute() {
                     </TouchableOpacity>
                 ),
             }} />
-            <Drawer.Screen name="SendMoney" component={RequestMoney} options={{
+            <Drawer.Screen name="Send" component={RequestMoney} options={{
                 headerTitle: () => <Text style={{ textAlign: 'left', fontSize: 22, color: colors.white }}>New Request</Text>,
             }} />
+            <Drawer.Screen name="Request" component={SendMoney} />
         </Drawer.Navigator>
     );
 }

@@ -16,8 +16,8 @@ const HomeScreen = () => {
             <Text style={{ fontWeight: 'bold', color: colors.white, fontSize: 32, padding: 5}}>$ 200,000</Text>
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-            <Button textColor={colors.tertiary} borderColor={colors.tertiary} background={colors.background} text={'Request money'} />
-            <Button textColor={colors.tertiary} borderColor={colors.tertiary} background={colors.background} text={'Send money'} onPress={() => navigation.navigate('SendMoney')}/>
+            <Button textColor={colors.tertiary} borderColor={colors.tertiary} background={colors.background} text={'Request money'} onPress={() => navigation.navigate('Request')}/>
+            <Button textColor={colors.tertiary} borderColor={colors.tertiary} background={colors.background} text={'Send money'} onPress={() => navigation.navigate('Send')}/>
         </View>
         <BottomSheet isOpen wrapperStyle={{ backgroundColor: colors.secondary, paddingHorizontal: 0 }} lineStyle={{ backgroundColor: colors.tertiary }}>
             {(onScrollEndDrag) => (
